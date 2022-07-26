@@ -1,0 +1,18 @@
+on: 
+  push:
+    branches: 
+      - master
+name: Deploy Website on Server
+jobs:
+    ftp-deploy-action:
+    name: ftp-deploy-action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+    
+    - name: ftp-deploy-action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftp://144.76.139.14
+        username: demoaccount
+        password: ${{ secrets.aims_ftp_password }}
