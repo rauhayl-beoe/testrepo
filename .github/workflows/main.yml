@@ -1,18 +1,16 @@
-on: 
-  push:
-    branches: 
-      - master
-name: Deploy Website on Server
+on: push
+name: 🚀 Deploy website on push
 jobs:
-    ftp-deploy-action:
-    name: ftp-deploy-action
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
     
-    - name: ftp-deploy-action
+    - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ftp://144.76.139.14
+        server: aimseducation.com.pk
         username: demoaccount
         password: ${{ secrets.aims_ftp_password }}
